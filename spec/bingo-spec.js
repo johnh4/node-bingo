@@ -36,7 +36,7 @@ describe("Bingo", function(){
 		next();
 	});
 
-	describe("methods", function(){
+	describe("evaluation", function(){
 
 		beforeEach(function(){
 			bingo.checkNum('I25');
@@ -86,6 +86,7 @@ describe("Bingo", function(){
 
 			it("should reveal winner via checkWin", function(next){
 				bingo.checkNum('I25');
+				console.log(bingo.taken);
 				expect(bingo.getRow(2)).toEqual([1,1,1,1,1]);
 				expect(bingo.checkWin()).toBe(true);
 				next();

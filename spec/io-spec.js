@@ -3,12 +3,6 @@ var Bingo = require('../models/bingo');
 
 describe("websocket tests", function(){
 
-	var board = { slots:
-   { B: [ 4, 7, 10, 11, 13 ],
-     I: [ 20, 22, 25, 33, 36 ],
-     N: [ 37, 45, 46, 52, 54 ],
-     G: [ 55, 59, 60, 62, 69 ],
-     O: [ 73, 74, 76, 77, 78 ] } }
 	var client;
 	var bingo;
 	var credentials = {
@@ -20,7 +14,6 @@ describe("websocket tests", function(){
 	client = socket.connect('ws://yahoobingo.herokuapp.com');
 	client.on('connect', function(){
 		console.log('connected!!!!');
-		//done();
 	});
 	client.on('disconnect', function(){
 		console.log('disconnected!');
@@ -30,24 +23,6 @@ describe("websocket tests", function(){
 		console.log('payload',payload);
 		bingo = new Bingo(payload);
 		console.log('bingo.slots', bingo.slots);
-	});
-
-	//beforeEach(function(done){
-	//});
-
-	//afterEach(function(done){
-	//	if(client.socket.connected){
-	//		console.log('disconnecting!');
-	//		client.disconnect();
-	//	} else {
-	//		console.log('no connection to disconnect from');
-	//	}
-	//	done();
-	//});
-
-	xit("should connect to the server", function(next){
-		expect(client.socket.connected).toBe(true);
-		next();
 	});
 
 	it("should receive a card from the registration", function(next){
@@ -79,7 +54,6 @@ describe("websocket tests", function(){
 		runs(function(){
 			console.log('bingo.taken', bingo.taken);
 			expect(received).not.toBe(undefined);
-			//client.disconnect();
 		});
 		next();
 	});

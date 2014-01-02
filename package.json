@@ -8,8 +8,7 @@
   "dependencies": {
     "express": "3.4.7",
     "ejs": "*",
-    "socket.io": "*",
-    "socket.io-client": "*",
-    "jasmine-node": "*"
+    "socket.io-client": "~0.9",
+    "jasmine-node": "~1.3"
   }
 }
