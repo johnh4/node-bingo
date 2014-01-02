@@ -1,0 +1,1 @@
+This is a node bingo client for http://yahoobingo.herokuapp.com/ .
